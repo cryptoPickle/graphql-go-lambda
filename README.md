@@ -1,6 +1,6 @@
 ### IT is for only POC
 
-
+![Go](https://github.com/cryptoPickle/graphql-go-lambda/workflows/Go/badge.svg?branch=master)
 #### Schema
 
 ```
