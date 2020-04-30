@@ -50,5 +50,5 @@ jobs:
         fi
 
     - name: Build
-      run: ls
+      run: make build -C go/src/github.com/cryptoPickle/graphql-go-lambda
 
