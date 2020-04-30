@@ -1,7 +1,6 @@
 .PHONY: build clean deploy
 
 build:
-	dep ensure -v
 	env GOOS=linux go build -ldflags="-s -w" -o bin/graphql graphql-lambda/main.go
 
 clean:
