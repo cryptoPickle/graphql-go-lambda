@@ -33,8 +33,8 @@ jobs:
         echo ${GOPATH}
         echo ${GOROOT}
 
-    env:
-      GOPATH: /home/runner/work/woodpecker/go
+      env:
+        GOPATH: /home/runner/work/woodpecker/go
 
     - name: Get dependencies
       run: |
