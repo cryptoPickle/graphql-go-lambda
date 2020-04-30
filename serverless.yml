@@ -1,0 +1,20 @@
+
+service: graphql-lambda-go-lambda
+frameworkVersion: '>=1.28.0 <2.0.0'
+
+provider:
+  name: aws
+  runtime: go1.x
+package:
+  exclude:
+    - ./**
+  include:
+    - ./bin/**
+
+functions:
+  graphql:
+    handler: bin/graphql
+    events:
+      - http:
+          path: graphql-lambda
+          method: post
