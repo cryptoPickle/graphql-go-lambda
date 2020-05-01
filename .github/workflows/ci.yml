@@ -50,7 +50,7 @@ jobs:
             dep ensure
         fi
     - name: Diff
-      run: git --no-pager diff --name-only ${{ github.event.before }} ${{ github.sha }}
+      run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
     - name: Build
       run: make build -C go/graphql-go-lambda
 
