@@ -49,7 +49,7 @@ jobs:
             dep ensure
         fi
     - name: Diff
-      run: git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
+      run: cd go/graphql-go-lambda && git --no-pager diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
     - name: Build
       run: make build -C go/graphql-go-lambda
 
