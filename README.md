@@ -31,4 +31,4 @@
 #### Deployment
 
 Before deployment the easiest way to supply credentials is exporting the AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
-Second step just run make deploy. Enjoy.  
+Second step just run make deploy. Enjoy.  :)

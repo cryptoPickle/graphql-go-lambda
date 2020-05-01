@@ -20,8 +20,6 @@ jobs:
       id: go
 
     - name: Set GOPATH
-      # temporary fix
-      # see https://github.com/actions/setup-go/issues/14
       run: |
         echo "##[set-env name=GOPATH;]$(dirname $GITHUB_WORKSPACE)"
         echo "##[add-path]$(dirname $GITHUB_WORKSPACE)/bin"
@@ -51,6 +49,8 @@ jobs:
         fi
     - name: Diff
       run: cd go; git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+    - name: Diff
+      run: cd go && git --no-pager diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
     - name: Build
       run: make build -C go
 
