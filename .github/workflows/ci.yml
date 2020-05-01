@@ -48,7 +48,8 @@ jobs:
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
         fi
-
+    - name: Diff
+      run: git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
     - name: Build
       run: make build -C go/src/github.com/cryptoPickle/graphql-go-lambda
 
