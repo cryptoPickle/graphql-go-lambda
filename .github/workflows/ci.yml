@@ -48,9 +48,7 @@ jobs:
             dep ensure
         fi
     - name: Diff
-      run: cd go; git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
-    - name: Diff
-      run: cd go && git --no-pager diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
+      run: cd go; git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs echo
     - name: Build
       run: make build -C go
 
