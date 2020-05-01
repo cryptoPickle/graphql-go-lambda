@@ -29,10 +29,12 @@ jobs:
 
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+        path: go/
 
     - name: Debug
       run: |
-        ls
         pwd
         echo ${HOME}
         echo ${GITHUB_WORKSPACE}
@@ -49,5 +51,5 @@ jobs:
     - name: Diff
       run: git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
     - name: Build
-      run: make build
+      run: make build -C go/graphql-go-lambda
 
